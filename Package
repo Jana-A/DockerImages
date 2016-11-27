@@ -1,0 +1,8 @@
+FROM centos
+RUN yum -y install epel-release
+RUN yum -y install python-devel gcc python-pip python-requests python-psycopg2 && yum clean all
+RUN pip install numpy
+RUN pip install workalendar
+COPY module.tar.gz /lib/python2.7/site-packages/module.tar.gz
+RUN tar -zxvf /lib/python2.7/site-packages/module.tar.gz
+ENV env_var1=env_var1
